@@ -60,10 +60,22 @@ public class SlidingMenu extends RelativeLayout {
 	 */
 	public static final int RIGHT = 1;
 
-	/** Constant value for use with setMode(). Puts menus to the left and right of the content.
-	 */
+    /** Constant value for use with setMode(). Puts menus to the left and right of the content.
+     */
 	public static final int LEFT_RIGHT = 2;
+	
+	/** Constant value for use with setMode(). Puts the menu to the top of the content.
+     */
+    public static final int TOP = 3;
 
+    /** Constant value for use with setMode(). Puts the menu to the bottom of the content.
+     */
+    public static final int BOTTOM = 4;
+
+    /** Constant value for use with setMode(). Puts menus to the left and right of the content.
+     */
+    public static final int TOP_BOTTOM = 5;
+    
 	private CustomViewAbove mViewAbove;
 
 	private CustomViewBehind mViewBehind;
@@ -444,7 +456,8 @@ public class SlidingMenu extends RelativeLayout {
 	 * @param mode must be either SlidingMenu.LEFT or SlidingMenu.RIGHT
 	 */
 	public void setMode(int mode) {
-		if (mode != LEFT && mode != RIGHT && mode != LEFT_RIGHT) {
+		if (mode != LEFT && mode != RIGHT && mode != LEFT_RIGHT &&
+		        mode != TOP && mode != BOTTOM && mode != TOP_BOTTOM) {
 			throw new IllegalStateException("SlidingMenu mode must be LEFT, RIGHT, or LEFT_RIGHT");
 		}
 		mViewBehind.setMode(mode);
